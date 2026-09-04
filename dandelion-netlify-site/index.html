@@ -59,8 +59,10 @@
   .dnd-logos p{font-size:19px;color:#011133;font-weight:600;margin:0 0 32px;}
   .dnd-logos-mask{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
   .dnd-logos-row{display:flex;align-items:center;width:max-content;list-style:none;margin:0;padding:0;animation:dnd-marquee 28s linear infinite;}
+  .dnd-logos-mask:hover .dnd-logos-row,.dnd-logos-mask:focus-within .dnd-logos-row{animation-play-state:paused;}
   .dnd-logos-row li{flex-shrink:0;margin:0 32px;display:flex;align-items:center;}
   .dnd-logos-row a{display:flex;align-items:center;}
+  .dnd-logos-row a:focus-visible{outline:2px solid var(--orange-btn);outline-offset:4px;}
   .dnd-logos-row img{height:38px;width:auto;max-width:none;opacity:.9;transition:opacity .2s;}
   .dnd-logos-row img.lg{height:50px;}
   .dnd-logos-row li:hover img{opacity:1;}
