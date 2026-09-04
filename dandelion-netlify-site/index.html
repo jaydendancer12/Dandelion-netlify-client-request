@@ -87,6 +87,8 @@
   .dnd-res-card p{font-size:13px;color:#3D4759;margin:0 0 18px;flex:1;}
   .dnd-res-card a{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:#011133;text-decoration:none;}
   .dnd-res-card a img{width:20px;height:auto;}
+  .dnd-res-card .pending-link{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:#3D4759;opacity:.6;}
+  .dnd-res-card .pending-link img{width:20px;height:auto;}
 
   /* CLOSING CTA */
   .dnd-cta{background-color:#011133;overflow:hidden;}
@@ -115,7 +117,7 @@
     <div class="dnd-hero-inner">
       <div class="dnd-hero-text">
         <img class="dnd-logo" src="https://clarifyb2b.com/wp-content/uploads/2026/09/logo.png" alt="Dandelion" loading="eager" fetchpriority="high">
-        <h1>Powering the next phase of global payout <span class="accent">performance</span></h1>
+        <h1 id="hero-heading">Powering the next phase of global payout <span class="accent">performance</span></h1>
         <p>Dandelion continues to scale and refine the world's largest real-time cross-border payments network, expanding direct-to-local reach, opening new corridors, and strengthening the intelligence that drives greater reliability and performance. As your trusted partner for critical cross-border payments infrastructure, we're focused on making every payout simpler for your customers and operational teams.</p>
       </div>
       <div class="dnd-hero-graphic">
@@ -254,7 +256,8 @@
           <div class="dnd-res-card-body">
             <h3>The future of cross-border payments doesn't rest on one rail</h3>
             <p>Cross-border payments now span diverse rails, wallets, and real-time networks. But the future isn't about more connections, it's about coordinating them through intelligent interoperability for faster, clearer, more dependable experiences.</p>
-            <a href="#"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/arrow.png" alt="" loading="eager">Explore our infographic</a>
+            <!-- pending: infographic asset not yet sent by Anna -- swap to <a href="assets/infographic.pdf" ...> once it lands -->
+            <span class="pending-link"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/arrow.png" alt="" loading="eager">Explore our infographic (coming soon)</span>
           </div>
         </div>
         <div class="dnd-res-card">
@@ -313,6 +316,18 @@
       document.getElementById('persona-heading').textContent = entry.personaHeading;
       document.getElementById('persona-body').textContent = entry.personaBody;
       document.title = (entry.displayName ? entry.displayName + ' | ' : '') + 'Dandelion Payments | Global Payout Performance';
+
+      var heroHeading = document.getElementById('hero-heading');
+      heroHeading.textContent = '';
+      heroHeading.appendChild(document.createTextNode(
+        entry.displayName
+          ? 'Powering ' + entry.displayName + '’s next phase of global payout '
+          : 'Powering the next phase of global payout '
+      ));
+      var accent = document.createElement('span');
+      accent.className = 'accent';
+      accent.textContent = 'performance';
+      heroHeading.appendChild(accent);
     })
     .catch(function(err){ console.warn('companies.json failed to load, showing default persona copy', err); });
 
