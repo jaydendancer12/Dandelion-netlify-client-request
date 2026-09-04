@@ -1,0 +1,44 @@
+{
+  "_note": "Persona data for the homepage (index.html) only -- separate from companies.json, which drives the payments page (payments.html) and must not change. 'default' is the confirmed general-audience copy from Dandelion-LandingPage_v3_sentic.docx. Entries below are PLACEHOLDER copy (mirrors default) for each of the 6 current logo-strip partners, pending real persona-specific copy from Anna. personaHeading is rendered via innerHTML so an inline <span class=\"accent\"> is allowed.",
+  "default": {
+    "displayName": null,
+    "personaHeading": "Here to help you deliver frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "Dandelion helps financial institutions modernize cross-border payments, reduce regulatory risk, and deliver faster, more transparent experiences through a single, intelligent global payout network. All backed by nearly 40 years of compliance, security, and operational excellence."
+  },
+  "ant-international": {
+    "displayName": "Ant International",
+    "personaHeading": "Here to help you deliver frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "Dandelion helps financial institutions modernize cross-border payments, reduce regulatory risk, and deliver faster, more transparent experiences through a single, intelligent global payout network. All backed by nearly 40 years of compliance, security, and operational excellence.",
+    "_placeholder": true
+  },
+  "yape": {
+    "displayName": "Yape",
+    "personaHeading": "Here to help you deliver frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "Dandelion helps financial institutions modernize cross-border payments, reduce regulatory risk, and deliver faster, more transparent experiences through a single, intelligent global payout network. All backed by nearly 40 years of compliance, security, and operational excellence.",
+    "_placeholder": true
+  },
+  "commonwealth-bank": {
+    "displayName": "Commonwealth Bank",
+    "personaHeading": "Here to help you deliver frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "Dandelion helps financial institutions modernize cross-border payments, reduce regulatory risk, and deliver faster, more transparent experiences through a single, intelligent global payout network. All backed by nearly 40 years of compliance, security, and operational excellence.",
+    "_placeholder": true
+  },
+  "remitly": {
+    "displayName": "Remitly",
+    "personaHeading": "Here to help you deliver frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "Dandelion helps financial institutions modernize cross-border payments, reduce regulatory risk, and deliver faster, more transparent experiences through a single, intelligent global payout network. All backed by nearly 40 years of compliance, security, and operational excellence.",
+    "_placeholder": true
+  },
+  "xoom": {
+    "displayName": "Xoom",
+    "personaHeading": "Here to help you deliver frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "Dandelion helps financial institutions modernize cross-border payments, reduce regulatory risk, and deliver faster, more transparent experiences through a single, intelligent global payout network. All backed by nearly 40 years of compliance, security, and operational excellence.",
+    "_placeholder": true
+  },
+  "pingpong": {
+    "displayName": "PingPong",
+    "personaHeading": "Here to help you deliver frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "Dandelion helps financial institutions modernize cross-border payments, reduce regulatory risk, and deliver faster, more transparent experiences through a single, intelligent global payout network. All backed by nearly 40 years of compliance, security, and operational excellence.",
+    "_placeholder": true
+  }
+}
