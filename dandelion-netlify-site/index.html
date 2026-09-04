@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dandelion Payments | Global Payout Performance</title>
+<meta name="description" content="Dandelion powers the world's largest real-time cross-border payments network — direct-to-local reach, new corridors, and the reliability commercial banks and fintechs depend on.">
+
+<link rel="preload" as="image" href="https://clarifyb2b.com/wp-content/uploads/2026/09/logo.png">
+<link rel="preload" as="image" href="https://clarifyb2b.com/wp-content/uploads/2026/09/graphic.png">
+
+<style>
+  @font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2) format('woff2');}
+  @font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2) format('woff2');}
+  @font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2) format('woff2');}
+
+  *{box-sizing:border-box;}
+  :root{--orange-text:#F99E25;--orange-btn:#FF6101;}
+  body{margin:0;font-family:'Poppins',sans-serif;color:#011133;line-height:1.55;background:#fff;}
+  .dnd-section{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* HERO */
+  .dnd-hero{background-color:#011133;overflow:hidden;}
+  .dnd-hero-inner{max-width:1400px;margin:0 auto;padding:0 5%;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+  .dnd-hero-text{flex:1 1 420px;min-width:280px;padding:64px 0;}
+  .dnd-hero-graphic{flex:0 1 420px;min-width:200px;max-width:420px;align-self:stretch;display:flex;align-items:flex-end;}
+  .dnd-hero-graphic img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain;margin-top:90px;}
+  .dnd-logo{height:42px;margin-bottom:36px;display:block;}
+  .dnd-hero-text h1{color:#fff;font-size:36px;font-weight:700;line-height:1.28;margin:0 0 22px;letter-spacing:-.5px;text-wrap:balance;}
+  .dnd-hero-text h1 .accent{color:var(--orange-text);}
+  .dnd-hero-text p{color:#C7CEDA;font-size:16px;line-height:1.6;max-width:460px;margin:0;}
+
+  /* PROOF POINTS */
+  .dnd-proof{background:#EEF1F6;padding:56px 0;}
+  .dnd-proof-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;}
+  .dnd-proof-card{background:#fff;border-radius:18px;padding:30px 22px;box-shadow:0 1px 3px rgba(1,17,51,.06);}
+  .dnd-proof-card img{height:40px;width:auto;margin-bottom:18px;display:block;}
+  .dnd-proof-card .num{font-size:19px;font-weight:700;color:#011133;margin:0 0 8px;line-height:1.3;font-variant-numeric:tabular-nums;}
+  .dnd-proof-card .desc{font-size:13.5px;color:#5B6472;margin:0;line-height:1.5;}
+
+  /* PERSONA BLOCK -- swapped by JS from data/companies.json based on ?company= */
+  .dnd-persona{background:#011133;padding:56px 0;text-align:center;}
+  .dnd-persona h2{color:var(--orange-text);font-size:25px;font-weight:700;margin:0 0 16px;text-wrap:balance;}
+  .dnd-persona p{color:#E4E8EF;font-size:15.5px;max-width:760px;margin:0 auto;}
+
+  /* WHITEPAPER */
+  .dnd-whitepaper{padding:72px 0;background:#fff;}
+  .dnd-whitepaper-inner{display:flex;align-items:center;gap:56px;flex-wrap:wrap;}
+  .dnd-whitepaper-img{flex:1 1 460px;display:flex;align-items:center;justify-content:center;padding:10px;}
+  .dnd-whitepaper-img img{width:100%;max-width:560px;}
+  .dnd-whitepaper-text{flex:1 1 400px;}
+  .dnd-whitepaper-text h2{font-size:27px;font-weight:700;margin:0 0 16px;color:var(--orange-text);line-height:1.3;}
+  .dnd-whitepaper-text p{font-size:15px;color:#3D4759;margin:0 0 20px;}
+  .dnd-whitepaper-text .bold-line{font-weight:700;color:#011133;margin-bottom:20px;font-size:15px;}
+  .dnd-btn{display:inline-block;background:var(--orange-btn);color:#fff;font-weight:700;font-size:14.5px;padding:16px 28px;border-radius:32px;text-decoration:none;border:none;cursor:pointer;font-family:inherit;}
+
+  /* LOGO STRIP -- marquee, each logo links to ?company=<slug> */
+  .dnd-logos{background:#F8F8F8;padding:44px 0;text-align:center;}
+  .dnd-logos p{font-size:19px;color:#011133;font-weight:600;margin:0 0 32px;}
+  .dnd-logos-mask{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+  .dnd-logos-row{display:flex;align-items:center;width:max-content;list-style:none;margin:0;padding:0;animation:dnd-marquee 28s linear infinite;}
+  .dnd-logos-row li{flex-shrink:0;margin:0 32px;display:flex;align-items:center;}
+  .dnd-logos-row a{display:flex;align-items:center;}
+  .dnd-logos-row img{height:38px;width:auto;max-width:none;opacity:.9;transition:opacity .2s;}
+  .dnd-logos-row img.lg{height:50px;}
+  .dnd-logos-row li:hover img{opacity:1;}
+  @keyframes dnd-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media(prefers-reduced-motion:reduce){.dnd-logos-row{animation:none;}}
+
+  /* WHY PARTNER */
+  .dnd-why{background:#EEF1F6;padding:64px 0 72px;}
+  .dnd-why h2{font-size:27px;font-weight:700;text-align:center;margin:0 auto 40px;color:#011133;}
+  .dnd-why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .dnd-why-card{background:#fff;border-radius:16px;padding:28px 24px;}
+  .dnd-why-card img{width:30px;margin-bottom:18px;display:block;}
+  .dnd-why-card h3{font-size:15.5px;font-weight:700;color:var(--orange-text);margin:0 0 12px;line-height:1.35;}
+  .dnd-why-card p{font-size:13.5px;color:#3D4759;margin:0;line-height:1.6;}
+
+  /* RESOURCES */
+  .dnd-resources{padding:72px 0;background:#fff;}
+  .dnd-resources h2{font-size:27px;font-weight:700;text-align:center;margin:0 0 40px;color:#011133;}
+  .dnd-res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .dnd-res-card{border:1px solid #E4E8EF;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;}
+  .dnd-res-card img{width:100%;height:160px;object-fit:cover;display:block;}
+  .dnd-res-card-body{padding:20px;flex:1;display:flex;flex-direction:column;}
+  .dnd-res-card h3{font-size:14.5px;font-weight:700;color:var(--orange-text);margin:0 0 10px;line-height:1.4;}
+  .dnd-res-card p{font-size:13px;color:#3D4759;margin:0 0 18px;flex:1;}
+  .dnd-res-card a{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:#011133;text-decoration:none;}
+  .dnd-res-card a img{width:20px;height:auto;}
+
+  /* CLOSING CTA */
+  .dnd-cta{background-color:#011133;overflow:hidden;}
+  .dnd-cta-row{max-width:1400px;margin:0 auto;padding:70px 5%;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+  .dnd-cta-inner{flex:1 1 420px;min-width:280px;max-width:520px;}
+  .dnd-cta-graphic{flex:0 1 300px;min-width:160px;max-width:300px;}
+  .dnd-cta-graphic img{display:block;width:100%;height:auto;max-height:300px;object-fit:contain;}
+  .dnd-cta h2{color:#fff;font-size:28px;font-weight:700;margin:0 0 16px;}
+  .dnd-cta p{color:#C7CEDA;font-size:15.5px;margin:0 0 30px;}
+  .dnd-footer{background:#fff;padding:20px 0;}
+  .dnd-footer p{font-size:13px;color:#3D4759;margin:0;}
+
+  @media(max-width:900px){
+    .dnd-proof-grid{grid-template-columns:repeat(2,1fr);}
+    .dnd-why-grid,.dnd-res-grid{grid-template-columns:repeat(2,1fr);}
+    .dnd-hero-text h1{font-size:28px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="dnd-page">
+
+  <!-- HERO -->
+  <section class="dnd-hero">
+    <div class="dnd-hero-inner">
+      <div class="dnd-hero-text">
+        <img class="dnd-logo" src="https://clarifyb2b.com/wp-content/uploads/2026/09/logo.png" alt="Dandelion" loading="eager" fetchpriority="high">
+        <h1>Powering the next phase of global payout <span class="accent">performance</span></h1>
+        <p>Dandelion continues to scale and refine the world's largest real-time cross-border payments network, expanding direct-to-local reach, opening new corridors, and strengthening the intelligence that drives greater reliability and performance. As your trusted partner for critical cross-border payments infrastructure, we're focused on making every payout simpler for your customers and operational teams.</p>
+      </div>
+      <div class="dnd-hero-graphic">
+        <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/graphic.png" alt="" loading="eager" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINTS -->
+  <section class="dnd-proof">
+    <div class="dnd-section dnd-proof-grid">
+      <div class="dnd-proof-card">
+        <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/icon1.png" alt="" loading="eager">
+        <p class="num"><span class="count" data-target="183">0</span> million transactions.</p>
+        <p class="desc">Trusted to power more than 183 million payments every year.</p>
+      </div>
+      <div class="dnd-proof-card">
+        <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/icon2.png" alt="" loading="eager">
+        <p class="num"><span class="count" data-target="200">0</span>+ countries.</p>
+        <p class="desc">Direct reach into over 200 markets worldwide.</p>
+      </div>
+      <div class="dnd-proof-card">
+        <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/icon3.png" alt="" loading="eager">
+        <p class="num"><span class="count" data-target="124">0</span> currencies.</p>
+        <p class="desc">Delivering funds in 130 currencies with predictable settlement.</p>
+      </div>
+      <div class="dnd-proof-card">
+        <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/icon4.png" alt="" loading="eager">
+        <p class="num"><span class="count" data-target="1000" data-format="comma">0</span>+ banking partners.</p>
+        <p class="desc">Connected to over 1,000 banks for fast, reliable delivery.</p>
+      </div>
+      <div class="dnd-proof-card">
+        <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/icon5.png" alt="" loading="eager">
+        <p class="num"><span class="count" data-target="90">0</span>+ regulatory bodies.</p>
+        <p class="desc">Governed by over 90 regulators for bank-grade compliance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PERSONA BLOCK -- text below is the fallback shown before JS runs / if JS fails. -->
+  <!-- JS overwrites #persona-heading / #persona-body from data/companies.json based on ?company= -->
+  <!-- The "four pillars" addition under this block is still being designed by Anna -- not built yet. -->
+  <!-- ============================================ -->
+  <section class="dnd-persona">
+    <div class="dnd-section">
+      <h2 id="persona-heading">Here to help you deliver frictionless payments at global scale</h2>
+      <p id="persona-body">Dandelion helps commercial banks reduce regulatory exposure, modernize legacy infrastructure, and compete more effectively in cross-border payments, all through a single, intelligent global payout network backed by nearly 40 years of compliance, security, and operational excellence.</p>
+    </div>
+  </section>
+
+  <!-- WHITEPAPER -->
+  <section class="dnd-whitepaper">
+    <div class="dnd-section dnd-whitepaper-inner">
+      <div class="dnd-whitepaper-img">
+        <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/whitepaper-image.png" alt="Whitepaper preview" loading="eager">
+      </div>
+      <div class="dnd-whitepaper-text">
+        <h2>Your exclusive early access to a new perspective on global payments</h2>
+        <p>Intelligent interoperability is reshaping how institutions operate across fragmented payment landscapes, enabling reach, consistency, and capability expansion without waiting for global alignment. In partnership with The Payments Association, this whitepaper is underpinned by market research to bring you exclusive insight into why intelligent interoperability is becoming a critical model for navigating global fragmentation — and what it means for the future of cross-border payments.</p>
+        <p class="bold-line">Be among the first to access this insight.</p>
+        <a href="assets/whitepaper.pdf" target="_blank" rel="noopener" class="dnd-btn">Get exclusive early access to our whitepaper</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO STRIP -- each real logo links to ?company=<slug>, duplicates (aria-hidden) stay non-interactive -->
+  <section class="dnd-logos">
+    <div class="dnd-section">
+      <p>Leading banks and fintechs already partner with Dandelion</p>
+      <div class="dnd-logos-mask">
+        <ul class="dnd-logos-row">
+          <li><a href="?company=citibank"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/citibank-logo.png" alt="Citibank" loading="eager"></a></li>
+          <li><a href="?company=standard-chartered"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/standard-charter-logo.png" alt="Standard Chartered" loading="eager"></a></li>
+          <li><a href="?company=commonwealth-bank"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/commonwealth-bank-logo.png" alt="Commonwealth Bank" loading="eager"></a></li>
+          <li><a href="?company=worldremit"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/world-remit-logo.png" alt="WorldRemit" loading="eager"></a></li>
+          <li><a href="?company=remitly"><img class="lg" src="https://clarifyb2b.com/wp-content/uploads/2026/09/remtily-logo.png" alt="Remitly" loading="eager"></a></li>
+          <li><a href="?company=xoom"><img class="lg" src="https://clarifyb2b.com/wp-content/uploads/2026/09/xoom-logo.png" alt="Xoom" loading="eager"></a></li>
+          <li><a href="?company=pingpong"><img class="lg" src="https://clarifyb2b.com/wp-content/uploads/2026/09/pingpong-logo2-2.png" alt="PingPong" loading="eager"></a></li>
+          <li aria-hidden="true"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/citibank-logo.png" alt="" loading="eager"></li>
+          <li aria-hidden="true"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/standard-charter-logo.png" alt="" loading="eager"></li>
+          <li aria-hidden="true"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/commonwealth-bank-logo.png" alt="" loading="eager"></li>
+          <li aria-hidden="true"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/world-remit-logo.png" alt="" loading="eager"></li>
+          <li aria-hidden="true"><img class="lg" src="https://clarifyb2b.com/wp-content/uploads/2026/09/remtily-logo.png" alt="" loading="eager"></li>
+          <li aria-hidden="true"><img class="lg" src="https://clarifyb2b.com/wp-content/uploads/2026/09/xoom-logo.png" alt="" loading="eager"></li>
+          <li aria-hidden="true"><img class="lg" src="https://clarifyb2b.com/wp-content/uploads/2026/09/pingpong-logo2-2.png" alt="" loading="eager"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY PARTNER -->
+  <section class="dnd-why">
+    <div class="dnd-section">
+      <h2>Why partnering with Dandelion moves your payments strategy forward</h2>
+      <div class="dnd-why-grid">
+        <div class="dnd-why-card">
+          <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/arrow.png" alt="" loading="eager">
+          <h3>Speed that wins customers</h3>
+          <p>Dandelion delivers fast, predictable payouts through a network of more than 1,000 banking partners, with real-time reach across most endpoints and contingency routes where RTP isn't available. Intelligent routing ensures the most efficient path every time, giving you transparency and performance that drive loyalty.</p>
+        </div>
+        <div class="dnd-why-card">
+          <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/arrow.png" alt="" loading="eager">
+          <h3>Compliance you can trust</h3>
+          <p>With more than 35 years in cross-border payments and oversight from 90+ regulators worldwide, Dandelion operates to bank-grade compliance standards. Real-time monitoring, global and local screening, independent AML reviews, and strict partner controls protect your institution and ensure payments never touch restricted industries.</p>
+        </div>
+        <div class="dnd-why-card">
+          <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/arrow.png" alt="" loading="eager">
+          <h3>Infrastructure built for efficiency</h3>
+          <p>Dandelion simplifies operations with a single integration, flexible connectivity via API, SWIFT, or ATP, and one contract covering onboarding and settlement. A 98.6%+ STP rate, dynamic pre-validation, and a hyper-responsive support team across 12 markets reduce friction and failures, while a dedicated client success manager guides you all the way.</p>
+        </div>
+        <div class="dnd-why-card">
+          <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/arrow.png" alt="" loading="eager">
+          <h3>Scale that unlocks global opportunity</h3>
+          <p>Reach more than 200 countries and 124 currencies across accounts, wallets, cash locations and cards, supported by billions of transactions processed annually. New routes and solutions can be added as quickly as the next working day, enabling you to capture any cross-border flow and expand without disrupting day-to-day operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE FROM DANDELION -->
+  <section class="dnd-resources">
+    <div class="dnd-section">
+      <h2>More from Dandelion</h2>
+      <div class="dnd-res-grid">
+        <div class="dnd-res-card">
+          <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/image1.png" alt="Global payment flows shifting toward digital wallets and real-time systems" loading="eager">
+          <div class="dnd-res-card-body">
+            <h3>Intelligent interoperability is powering the next leap in global payments</h3>
+            <p>Global payment flows are shifting as digital wallets, real-time systems, and local rails reshape how money moves across borders. Providers need smarter ways to connect these infrastructures.</p>
+            <a href="assets/whitepaper.pdf" target="_blank" rel="noopener"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/arrow.png" alt="" loading="eager">Find out more in our whitepaper</a>
+          </div>
+        </div>
+        <div class="dnd-res-card">
+          <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/image2.png" alt="Futuristic network grid representing global payment rails" loading="eager">
+          <div class="dnd-res-card-body">
+            <h3>The future of cross-border payments doesn't rest on one rail</h3>
+            <p>Cross-border payments now span diverse rails, wallets, and real-time networks. But the future isn't about more connections, it's about coordinating them through intelligent interoperability for faster, clearer, more dependable experiences.</p>
+            <a href="#"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/arrow.png" alt="" loading="eager">Explore our infographic</a>
+          </div>
+        </div>
+        <div class="dnd-res-card">
+          <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/image3.png" alt="View looking up at a skyscraper against the sun" loading="eager">
+          <div class="dnd-res-card-body">
+            <h3>How Dandelion is redefining global banking innovation</h3>
+            <p>As technology and expectations accelerate, Dandelion helps banks modernize with real-time, transparent cross-border payments, instant global reach and compliance built into every transaction.</p>
+            <a href="https://www.dandelionpayments.com/resources/how-dandelion-is-redefining-global-banking-innovation/"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/arrow.png" alt="" loading="eager">Discover transparent, real-time cross-border payments with Dandelion</a>
+          </div>
+        </div>
+        <div class="dnd-res-card">
+          <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/image4.png" alt="People in an office seen through reflective glass" loading="eager">
+          <div class="dnd-res-card-body">
+            <h3>Building successful fintech–bank partnerships</h3>
+            <p>Banks and fintechs need stronger alignment to move faster and deliver better outcomes. This panel explores what effective partnerships look like, and how the right payout network can enable speed and reliability at scale.</p>
+            <a href="https://www.dandelionpayments.com/resources/building-successful-fintech-bank-partnerships/"><img src="https://clarifyb2b.com/wp-content/uploads/2026/09/arrow.png" alt="" loading="eager">See why better connections matter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="dnd-cta">
+    <div class="dnd-cta-row">
+      <div class="dnd-cta-inner">
+        <h2>Let's explore what's next together</h2>
+        <p>If you're keen to learn more or discuss how Dandelion can support your roadmap, we'd love to connect.</p>
+        <a href="https://www.dandelionpayments.com/contact-us/" class="dnd-btn">Contact us</a>
+      </div>
+      <div class="dnd-cta-graphic">
+        <img src="https://clarifyb2b.com/wp-content/uploads/2026/09/graphic.png" alt="" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="dnd-footer">
+    <div class="dnd-section">
+      <p>Dandelion, A Euronet Service © 2026 Dandelion Payments, Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  /* ---- persona-block content swap, driven by data/companies.json + ?company= ---- */
+  var params = new URLSearchParams(window.location.search);
+  var companySlug = params.get('company') || 'default';
+  fetch('data/companies.json')
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      var entry = data[companySlug] || data['default'];
+      if(!entry) return;
+      document.getElementById('persona-heading').textContent = entry.personaHeading;
+      document.getElementById('persona-body').textContent = entry.personaBody;
+      document.title = (entry.displayName ? entry.displayName + ' | ' : '') + 'Dandelion Payments | Global Payout Performance';
+    })
+    .catch(function(err){ console.warn('companies.json failed to load, showing default persona copy', err); });
+
+  /* ---- stat count-up on scroll into view ---- */
+  var els = document.querySelectorAll('.dnd-proof .count');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function format(n, el){
+    return el.getAttribute('data-format') === 'comma' ? n.toLocaleString('en-US') : String(n);
+  }
+  function run(el){
+    var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+    if(reduce){ el.textContent = format(target, el); return; }
+    var duration = 1400, start = null;
+    function ease(t){ return 1 - Math.pow(1 - t, 3); }
+    function step(ts){
+      if(start === null) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      el.textContent = format(Math.round(ease(p) * target), el);
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if(els.length){
+    if('IntersectionObserver' in window){
+      var seen = new WeakSet();
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting && !seen.has(entry.target)){
+            seen.add(entry.target);
+            run(entry.target);
+          }
+        });
+      }, {threshold: 0.4});
+      els.forEach(function(el){ io.observe(el); });
+    } else {
+      els.forEach(run);
+    }
+  }
+})();
+</script>
+
+</body>
+</html>
