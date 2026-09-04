@@ -114,7 +114,7 @@
     <div class="dnd-hero-inner">
       <div class="dnd-hero-text">
         <img class="dnd-logo" src="assets/images/logo.png" alt="Dandelion" loading="eager" fetchpriority="high">
-        <h1>Powering the next phase of global payout <span class="accent">performance</span></h1>
+        <h1 id="hero-heading">Powering the next phase of global payout <span class="accent">performance</span></h1>
         <p>Dandelion continues to scale and refine the world's largest real-time cross-border payments network, expanding direct-to-local reach, opening new corridors, and strengthening the intelligence that drives greater reliability and performance. As your trusted partner for critical cross-border payments infrastructure, we're focused on making every payout simpler for your customers and operational teams.</p>
       </div>
       <div class="dnd-hero-graphic">
@@ -298,6 +298,18 @@
       document.getElementById('persona-heading').innerHTML = entry.personaHeading;
       document.getElementById('persona-body').textContent = entry.personaBody;
       document.title = (entry.displayName ? entry.displayName + ' | ' : '') + 'Dandelion Payments | Global Payout Performance';
+
+      var heroHeading = document.getElementById('hero-heading');
+      heroHeading.textContent = '';
+      heroHeading.appendChild(document.createTextNode(
+        entry.displayName
+          ? 'Powering ' + entry.displayName + '’s next phase of global payout '
+          : 'Powering the next phase of global payout '
+      ));
+      var accent = document.createElement('span');
+      accent.className = 'accent';
+      accent.textContent = 'performance';
+      heroHeading.appendChild(accent);
     })
     .catch(function(err){ console.warn('companies.json failed to load, showing default persona copy', err); });
 
