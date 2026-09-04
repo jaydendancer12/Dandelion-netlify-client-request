@@ -1,50 +1,50 @@
 {
-  "_note": "One entry per persona. 'default' renders when no ?company= param is present. personaHeading/personaBody are PLACEHOLDER copy for every entry except default is confirmed as the real general-audience copy. Real persona-specific copy is blocked on Anna Eldred as of 2026-09-04 -- swap the placeholder text below in-place once it lands. No rebuild needed, this file is the only thing that changes.",
+  "_note": "One entry per persona. 'default' renders when no ?company= param is present. personaHeading/personaBody are PLACEHOLDER copy for every entry except default is confirmed as the real general-audience copy (mirrors default, per the Sept 2026 redesign). Real persona-specific copy is blocked on Anna Eldred as of 2026-09-04 -- swap the placeholder text below in-place once it lands. No rebuild needed, this file is the only thing that changes. personaHeading/personaBody are rendered via innerHTML so an inline <span class=\"accent\"> is allowed.",
   "default": {
     "displayName": null,
-    "personaHeading": "Here to help you deliver frictionless payments at global scale",
-    "personaBody": "Dandelion helps commercial banks reduce regulatory exposure, modernize legacy infrastructure, and compete more effectively in cross-border payments, all through a single, intelligent global payout network backed by nearly 40 years of compliance, security, and operational excellence."
+    "personaHeading": "Frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "With almost four decades of expertise, Dandelion enables reach to billions of accounts, wallets, cash pick up locations and cards - using a single connection to send money from anywhere to anyone. Together, we will enable the money movement experiences you need to stay ahead."
   },
   "citibank": {
     "displayName": "Citibank",
-    "personaHeading": "Here to help you deliver frictionless payments at global scale",
-    "personaBody": "Dandelion helps commercial banks reduce regulatory exposure, modernize legacy infrastructure, and compete more effectively in cross-border payments, all through a single, intelligent global payout network backed by nearly 40 years of compliance, security, and operational excellence.",
+    "personaHeading": "Frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "With almost four decades of expertise, Dandelion enables reach to billions of accounts, wallets, cash pick up locations and cards - using a single connection to send money from anywhere to anyone. Together, we will enable the money movement experiences you need to stay ahead.",
     "_placeholder": true
   },
   "standard-chartered": {
     "displayName": "Standard Chartered",
-    "personaHeading": "Here to help you deliver frictionless payments at global scale",
-    "personaBody": "Dandelion helps commercial banks reduce regulatory exposure, modernize legacy infrastructure, and compete more effectively in cross-border payments, all through a single, intelligent global payout network backed by nearly 40 years of compliance, security, and operational excellence.",
+    "personaHeading": "Frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "With almost four decades of expertise, Dandelion enables reach to billions of accounts, wallets, cash pick up locations and cards - using a single connection to send money from anywhere to anyone. Together, we will enable the money movement experiences you need to stay ahead.",
     "_placeholder": true
   },
   "commonwealth-bank": {
     "displayName": "Commonwealth Bank",
-    "personaHeading": "Here to help you deliver frictionless payments at global scale",
-    "personaBody": "Dandelion helps commercial banks reduce regulatory exposure, modernize legacy infrastructure, and compete more effectively in cross-border payments, all through a single, intelligent global payout network backed by nearly 40 years of compliance, security, and operational excellence.",
+    "personaHeading": "Frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "With almost four decades of expertise, Dandelion enables reach to billions of accounts, wallets, cash pick up locations and cards - using a single connection to send money from anywhere to anyone. Together, we will enable the money movement experiences you need to stay ahead.",
     "_placeholder": true
   },
   "worldremit": {
     "displayName": "WorldRemit",
-    "personaHeading": "Here to help you deliver frictionless payments at global scale",
-    "personaBody": "Dandelion helps commercial banks reduce regulatory exposure, modernize legacy infrastructure, and compete more effectively in cross-border payments, all through a single, intelligent global payout network backed by nearly 40 years of compliance, security, and operational excellence.",
+    "personaHeading": "Frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "With almost four decades of expertise, Dandelion enables reach to billions of accounts, wallets, cash pick up locations and cards - using a single connection to send money from anywhere to anyone. Together, we will enable the money movement experiences you need to stay ahead.",
     "_placeholder": true
   },
   "remitly": {
     "displayName": "Remitly",
-    "personaHeading": "Here to help you deliver frictionless payments at global scale",
-    "personaBody": "Dandelion helps commercial banks reduce regulatory exposure, modernize legacy infrastructure, and compete more effectively in cross-border payments, all through a single, intelligent global payout network backed by nearly 40 years of compliance, security, and operational excellence.",
+    "personaHeading": "Frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "With almost four decades of expertise, Dandelion enables reach to billions of accounts, wallets, cash pick up locations and cards - using a single connection to send money from anywhere to anyone. Together, we will enable the money movement experiences you need to stay ahead.",
     "_placeholder": true
   },
   "xoom": {
     "displayName": "Xoom",
-    "personaHeading": "Here to help you deliver frictionless payments at global scale",
-    "personaBody": "Dandelion helps commercial banks reduce regulatory exposure, modernize legacy infrastructure, and compete more effectively in cross-border payments, all through a single, intelligent global payout network backed by nearly 40 years of compliance, security, and operational excellence.",
+    "personaHeading": "Frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "With almost four decades of expertise, Dandelion enables reach to billions of accounts, wallets, cash pick up locations and cards - using a single connection to send money from anywhere to anyone. Together, we will enable the money movement experiences you need to stay ahead.",
     "_placeholder": true
   },
   "pingpong": {
     "displayName": "PingPong",
-    "personaHeading": "Here to help you deliver frictionless payments at global scale",
-    "personaBody": "Dandelion helps commercial banks reduce regulatory exposure, modernize legacy infrastructure, and compete more effectively in cross-border payments, all through a single, intelligent global payout network backed by nearly 40 years of compliance, security, and operational excellence.",
+    "personaHeading": "Frictionless payments at <span class=\"accent\">global scale</span>",
+    "personaBody": "With almost four decades of expertise, Dandelion enables reach to billions of accounts, wallets, cash pick up locations and cards - using a single connection to send money from anywhere to anyone. Together, we will enable the money movement experiences you need to stay ahead.",
     "_placeholder": true
   }
 }
