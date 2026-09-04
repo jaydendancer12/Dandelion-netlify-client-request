@@ -69,6 +69,8 @@
   .dnd-contact-bar p{color:#fff;font-size:var(--fs-cta);font-weight:600;margin:0;}
   .dnd-contact-bar a{color:#fff;text-decoration:none;}
   .dnd-contact-bar a:hover{text-decoration:underline;}
+  .dnd-contact-bar .dnd-btn{display:inline-block;background:var(--orange-btn);color:#fff;font-weight:600;font-size:var(--fs-cta);padding:14px 30px;border-radius:32px;text-decoration:none;}
+  .dnd-contact-bar .dnd-btn:hover{text-decoration:none;opacity:.9;}
   .dnd-gap-to-bar{margin-top:clamp(22px,5.04vw,76px);}
 
   /* ============ TRANSFORM YOUR CROSS-BORDER PAYMENTS ============ */
@@ -82,14 +84,6 @@
   .dnd-transform-media{flex:0 1 auto;min-width:160px;max-width:clamp(160px,26vw,340px);position:relative;display:flex;align-items:center;justify-content:center;}
   .dnd-transform-media .headshot{width:100%;height:auto;display:block;position:relative;z-index:2;-webkit-user-drag:none;user-select:none;}
   .dnd-transform-media .burst{position:absolute;top:-16%;right:-20%;width:60%;height:auto;z-index:3;-webkit-user-drag:none;user-select:none;}
-
-  /* ============ FOUR PILLARS ============ */
-  .dnd-pillars{padding:clamp(14px,2.79vw,43px) 0 0;}
-  .dnd-pillars-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(11px,2.7vw,36px);}
-  .dnd-pillar-card{background:var(--navy);border-radius:18px;padding:clamp(18px,4.59vw,65px);text-align:center;}
-  .dnd-pillar-card h3{font-size:var(--fs-h3);font-weight:600;color:#fff;margin:0 0 10px;}
-  .dnd-pillar-card h3 .accent{color:var(--orange-text);}
-  .dnd-pillar-card p{font-size:var(--fs-body);color:#C7CEDA;margin:0;line-height:1.6;}
 
   /* ============ TRUSTED LOGOS ============ */
   .dnd-logos{text-align:center;padding-top:clamp(25px,5.94vw,86px);}
@@ -132,11 +126,6 @@
     .dnd-transform-text h2{margin-bottom:20px;}
     .dnd-transform-list li{margin-bottom:14px;}
 
-    .dnd-pillars{padding-top:36px;}
-    .dnd-pillars-grid{gap:20px;}
-    .dnd-pillar-card{padding:28px 24px;}
-    .dnd-pillar-card h3{margin-bottom:14px;}
-
     .dnd-logos{padding-top:52px;}
     .dnd-logos h2{margin-bottom:20px;}
   }
@@ -146,7 +135,6 @@
     .dnd-proof-bar{grid-template-columns:repeat(2,1fr);border-radius:14px;}
     .dnd-proof-col:nth-child(odd){border-left:none;}
     .dnd-proof-col:nth-child(-n+2){border-bottom:1px solid #DADFE8;}
-    .dnd-pillars-grid{grid-template-columns:1fr;}
     .dnd-hero-inner{padding-top:28px;padding-bottom:28px;gap:24px;}
     .dnd-integration-inner{max-width:100%;}
     .dnd-transform-inner{text-align:center;justify-content:center;}
@@ -257,28 +245,6 @@
     </div>
   </section>
 
-  <!-- FOUR PILLARS -->
-  <section class="dnd-pillars">
-    <div class="dnd-section dnd-pillars-grid">
-      <div class="dnd-pillar-card">
-        <h3><span class="accent">Scale.</span></h3>
-        <p>Move money from anyone to anywhere with direct reach to 200+ countries and 124 currencies, reaching accounts, wallets, cash locations and card; adding new routes or solutions as quickly as same working day.</p>
-      </div>
-      <div class="dnd-pillar-card">
-        <h3><span class="accent">Trust.</span></h3>
-        <p>Protect your business with Bank-grade compliance standards, licenses and tools perfected over 35 years in the cross-border payments business.</p>
-      </div>
-      <div class="dnd-pillar-card">
-        <h3><span class="accent">Efficient infrastructure.</span></h3>
-        <p>Create operational efficiency with a hyper-responsive team from on-boarding, optionality and payment management, alongside innovative technology to remove inefficiencies and payment failures.</p>
-      </div>
-      <div class="dnd-pillar-card">
-        <h3><span class="accent">Speed.</span></h3>
-        <p>Plug into our network of over 1000+ banking partners to ensure your money gets to where it needs to go in real time with contingency &ndash; even in markets where real time is not available.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- TRUSTED LOGOS -->
   <section class="dnd-logos">
     <div class="dnd-section">
@@ -301,7 +267,7 @@
       </div>
     </div>
     <div class="dnd-contact-bar dnd-textured dnd-gap-to-bar">
-      <p>Get in touch at <a href="https://www.dandelionpayments.com/contact-us/">www.dandelionpayments.com/contact-us</a></p>
+      <a class="dnd-btn" href="assets/dandelion-payments-introduction.pdf" download>Learn more about Dandelion</a>
     </div>
   </section>
 
