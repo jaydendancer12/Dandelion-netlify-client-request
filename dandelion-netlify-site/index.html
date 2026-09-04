@@ -112,8 +112,33 @@
   }
 
   /* ============ MOBILE / TABLET OPTIMIZATION ============ */
+  /* Section rhythm and internal padding is noticeably tighter on desktop (the clamp() minimums
+     are tuned for a fluid desktop scale); on phones and tablets those minimums read as cramped,
+     so give every section, card, and grid its own generously-spaced mobile/tablet values here. */
   @media(max-width:1280px){
     .dnd-hero-inner{padding-top:36px;padding-bottom:36px;}
+
+    .dnd-persona{padding-top:48px;}
+    .dnd-persona h2{margin-bottom:18px;}
+    .dnd-proof-bar{margin-top:32px;}
+    .dnd-proof-col{padding:24px 20px;}
+
+    .dnd-integration{padding-top:52px;}
+    .dnd-integration-cta{margin-top:28px;}
+    .dnd-gap-to-bar{margin-top:44px;}
+    .dnd-contact-bar{padding:28px 6%;}
+
+    .dnd-transform{padding:52px 0 36px;}
+    .dnd-transform-text h2{margin-bottom:20px;}
+    .dnd-transform-list li{margin-bottom:14px;}
+
+    .dnd-pillars{padding-top:36px;}
+    .dnd-pillars-grid{gap:20px;}
+    .dnd-pillar-card{padding:28px 24px;}
+    .dnd-pillar-card h3{margin-bottom:14px;}
+
+    .dnd-logos{padding-top:52px;}
+    .dnd-logos h2{margin-bottom:20px;}
   }
 
   @media(max-width:680px){
@@ -121,7 +146,6 @@
     .dnd-proof-bar{grid-template-columns:repeat(2,1fr);border-radius:14px;}
     .dnd-proof-col:nth-child(odd){border-left:none;}
     .dnd-proof-col:nth-child(-n+2){border-bottom:1px solid #DADFE8;}
-    .dnd-proof-col{padding:16px 14px;}
     .dnd-pillars-grid{grid-template-columns:1fr;}
     .dnd-hero-inner{padding-top:28px;padding-bottom:28px;gap:24px;}
     .dnd-integration-inner{max-width:100%;}
