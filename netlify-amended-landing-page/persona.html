@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dandelion Payments | Global Payout Performance</title>
+<meta name="description" content="Dandelion powers the world's largest real-time cross-border payments network — direct-to-local reach, new corridors, and the reliability commercial banks and fintechs depend on.">
+
+<!-- =============================================================================
+     PERSONA LANDING TEMPLATE
+     One template, served at 8 clean URLs via _redirects (200 rewrites):
+       /commercial-bank-general            /commercial-bank-strategy-sales
+       /commercial-bank-product-manager    /commercial-bank-risk-compliance
+       /retail-bank-general                /retail-bank-treasury-management
+       /retail-bank-product-management     /retail-bank-risk-compliance
+     Each URL is sent to one audience via display ads / email and is tracked by
+     its own path. No query parameters, no persona switcher, no partner pages.
+     Only the persona heading + intro paragraph + the 4 numbered blocks change
+     per page; every other section is identical. All persona copy lives in the
+     single #persona-data block below — edit copy there.
+     The [company name] personalization is wired (COMPANY_NAME in the script) but
+     inert on these 8 pages; it belongs to a later phase.
+     ========================================================================== -->
+
+<link rel="preload" as="image" href="/assets/images/logo.png">
+<link rel="preload" as="image" href="/assets/images/graphic.png">
+
+<style>
+  @font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v24/pxiEyp8kv8JHgFVrJJfecnFHGPc.woff2) format('woff2');}
+  @font-face{font-family:'Poppins';font-style:normal;font-weight:600;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLEj6Z1xlFd2JQEk.woff2) format('woff2');}
+  @font-face{font-family:'Poppins';font-style:normal;font-weight:700;font-display:swap;src:url(https://fonts.gstatic.com/s/poppins/v24/pxiByp8kv8JHgFVrLCz7Z1xlFd2JQEk.woff2) format('woff2');}
+
+  *{box-sizing:border-box;}
+  :root{--orange-text:#F99E25;--orange-btn:#FF6101;}
+  body{margin:0;font-family:'Poppins',sans-serif;color:#011133;line-height:1.55;background:#fff;}
+  .dnd-section{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* HERO */
+  .dnd-hero{background-color:#011133;overflow:hidden;}
+  .dnd-hero-inner{max-width:1400px;margin:0 auto;padding:0 5%;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+  .dnd-hero-text{flex:1 1 420px;min-width:280px;padding:64px 0;}
+  .dnd-hero-graphic{flex:0 1 420px;min-width:200px;max-width:420px;align-self:stretch;display:flex;align-items:flex-end;}
+  .dnd-hero-graphic img{display:block;width:100%;height:auto;max-height:420px;object-fit:contain;margin-top:90px;}
+  .dnd-logo{height:42px;margin-bottom:36px;display:block;}
+  .dnd-hero-text h1{color:#fff;font-size:36px;font-weight:700;line-height:1.28;margin:0 0 22px;letter-spacing:-.5px;text-wrap:balance;}
+  .dnd-hero-text h1 .accent{color:var(--orange-text);}
+  .dnd-hero-text p{color:#C7CEDA;font-size:16px;line-height:1.6;max-width:460px;margin:0;}
+
+  /* PROOF POINTS */
+  .dnd-proof{background:#EEF1F6;padding:56px 0;}
+  .dnd-proof-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;}
+  .dnd-proof-card{background:#fff;border-radius:18px;padding:30px 22px;box-shadow:0 1px 3px rgba(1,17,51,.06);}
+  .dnd-proof-card img{height:40px;width:auto;margin-bottom:18px;display:block;}
+  .dnd-proof-card .num{font-size:19px;font-weight:700;color:#011133;margin:0 0 8px;line-height:1.3;font-variant-numeric:tabular-nums;}
+
+  /* PERSONA BLOCK + 4-POINT CARDS -- dark section; heading/body/points set by JS from #persona-data by URL path */
+  .dnd-persona{background:#011133;padding:56px 0 72px;text-align:center;}
+  .dnd-persona h2{color:var(--orange-text);font-size:25px;font-weight:700;margin:0 0 16px;text-wrap:balance;}
+  .dnd-persona h2 .accent{color:#fff;}
+  .dnd-persona p{color:#E4E8EF;font-size:15.5px;max-width:760px;margin:0 auto;}
+  .dnd-points-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;text-align:left;}
+  .dnd-point-card{background:#fff;border-radius:16px;padding:28px 24px;}
+  .dnd-point-card img{width:26px;margin-bottom:18px;display:block;}
+  .dnd-point-card h3{font-size:15.5px;font-weight:700;color:var(--orange-text);margin:0 0 12px;line-height:1.35;}
+  .dnd-point-card p{font-size:13.5px;color:#3D4759;margin:0;line-height:1.6;}
+
+  /* WHITEPAPER -- circular backdrop behind the image */
+  .dnd-whitepaper{padding:72px 0;background:#fff;}
+  .dnd-whitepaper-inner{display:flex;align-items:center;gap:56px;flex-wrap:wrap;}
+  .dnd-whitepaper-img{flex:1 1 460px;display:flex;align-items:center;justify-content:center;padding:10px;position:relative;}
+  .dnd-whitepaper-img::before{content:'';position:absolute;width:78%;padding-top:78%;background:#C7CEE3;border-radius:50%;z-index:0;}
+  .dnd-whitepaper-img img{width:100%;max-width:560px;position:relative;z-index:1;}
+  .dnd-whitepaper-text{flex:1 1 400px;}
+  .dnd-whitepaper-text h2{font-size:27px;font-weight:700;margin:0 0 16px;color:var(--orange-text);line-height:1.3;}
+  .dnd-whitepaper-text p{font-size:15px;color:#3D4759;margin:0 0 20px;}
+  .dnd-whitepaper-text ul{margin:0 0 24px;padding-left:22px;}
+  .dnd-whitepaper-text li{font-size:15px;color:#3D4759;line-height:1.6;margin:0 0 10px;}
+  .dnd-whitepaper-text .bold-line{font-weight:700;color:#011133;margin-bottom:20px;font-size:15px;}
+  .dnd-btn{display:inline-block;background:var(--orange-btn);color:#fff;font-weight:700;font-size:14.5px;padding:16px 28px;border-radius:32px;text-decoration:none;border:none;cursor:pointer;font-family:inherit;}
+
+  /* LOGO STRIP -- marquee, static (non-clickable) trusted-by strip */
+  .dnd-logos{background:#F8F8F8;padding:44px 0;text-align:center;}
+  .dnd-logos p{font-size:19px;color:#011133;font-weight:600;margin:0 0 32px;}
+  .dnd-logos-mask{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);}
+  .dnd-logos-row{display:flex;align-items:center;width:max-content;list-style:none;margin:0;padding:0;animation:dnd-marquee 28s linear infinite;}
+  @media(hover:hover) and (pointer:fine){.dnd-logos-mask:hover .dnd-logos-row{animation-play-state:paused;}}
+  .dnd-logos-row li{flex-shrink:0;margin:0 32px;display:flex;align-items:center;}
+  .dnd-logos-row img{height:38px;width:auto;max-width:none;opacity:.9;}
+  .dnd-logos-row img.lg{height:50px;}
+  @keyframes dnd-marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  @media(prefers-reduced-motion:reduce){.dnd-logos-row{animation:none;}}
+
+  /* RESOURCES */
+  .dnd-resources{padding:72px 0;background:#fff;}
+  .dnd-resources h2{font-size:27px;font-weight:700;text-align:center;margin:0 0 40px;color:#011133;}
+  .dnd-res-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .dnd-res-card{border:1px solid #E4E8EF;border-radius:14px;overflow:hidden;display:flex;flex-direction:column;}
+  .dnd-res-card img{width:100%;height:160px;object-fit:cover;display:block;}
+  .dnd-res-card-body{padding:20px;flex:1;display:flex;flex-direction:column;}
+  .dnd-res-card h3{font-size:14.5px;font-weight:700;color:var(--orange-text);margin:0 0 10px;line-height:1.4;}
+  .dnd-res-card p{font-size:13px;color:#3D4759;margin:0 0 18px;flex:1;}
+  .dnd-res-card a,.dnd-res-card .res-link{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;color:#011133;text-decoration:none;}
+  .dnd-res-card a img,.dnd-res-card .res-link img{width:20px;height:auto;}
+
+  /* CLOSING CTA */
+  .dnd-cta{background-color:#011133;overflow:hidden;}
+  .dnd-cta-row{max-width:1400px;margin:0 auto;padding:70px 5%;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap;}
+  .dnd-cta-inner{flex:1 1 420px;min-width:280px;max-width:520px;}
+  .dnd-cta-graphic{flex:0 1 300px;min-width:160px;max-width:300px;}
+  .dnd-cta-graphic img{display:block;width:100%;height:auto;max-height:300px;object-fit:contain;}
+  .dnd-cta h2{color:#fff;font-size:28px;font-weight:700;margin:0 0 16px;}
+  .dnd-cta p{color:#C7CEDA;font-size:15.5px;margin:0 0 30px;}
+  .dnd-footer{background:#fff;padding:20px 0;}
+  .dnd-footer p{font-size:13px;color:#3D4759;margin:0;}
+
+  @media(max-width:900px){
+    .dnd-proof-grid{grid-template-columns:repeat(2,1fr);}
+    .dnd-points-grid,.dnd-res-grid{grid-template-columns:repeat(2,1fr);}
+    .dnd-hero-text h1{font-size:28px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="dnd-page">
+
+  <!-- HERO -->
+  <section class="dnd-hero">
+    <div class="dnd-hero-inner">
+      <div class="dnd-hero-text">
+        <img class="dnd-logo" src="/assets/images/logo.png" alt="Dandelion" loading="eager" fetchpriority="high">
+        <h1 id="hero-heading">Powering the next phase of global payout <span class="accent">performance</span></h1>
+        <p>Dandelion continues to scale and refine the world's largest real-time cross-border payments network, expanding direct-to-local reach, opening new corridors, and strengthening the intelligence that drives greater reliability and performance. As your trusted partner for critical cross-border payments infrastructure, we're focused on making every payout simpler for your customers and operational teams.</p>
+      </div>
+      <div class="dnd-hero-graphic">
+        <img src="/assets/images/graphic.png" alt="" loading="eager" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <!-- PROOF POINTS -->
+  <section class="dnd-proof">
+    <div class="dnd-section dnd-proof-grid">
+      <div class="dnd-proof-card">
+        <img src="/assets/images/icon1.png" alt="" loading="eager">
+        <p class="num"><span class="count" data-target="183">0</span> million transactions.</p>
+      </div>
+      <div class="dnd-proof-card">
+        <img src="/assets/images/icon2.png" alt="" loading="eager">
+        <p class="num"><span class="count" data-target="200">0</span>+ countries.</p>
+      </div>
+      <div class="dnd-proof-card">
+        <img src="/assets/images/icon3.png" alt="" loading="eager">
+        <p class="num"><span class="count" data-target="124">0</span> currencies.</p>
+      </div>
+      <div class="dnd-proof-card">
+        <img src="/assets/images/icon4.png" alt="" loading="eager">
+        <p class="num"><span class="count" data-target="1000" data-format="comma">0</span>+ banking partners.</p>
+      </div>
+      <div class="dnd-proof-card">
+        <img src="/assets/images/icon5.png" alt="" loading="eager">
+        <p class="num"><span class="count" data-target="90">0</span>+ regulatory bodies.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PERSONA BLOCK + 4 POINTS -- copy below is the pre-swap fallback (general-audience wording). -->
+  <!-- JS sets #persona-heading / #persona-body / the 4 point cards from #persona-data by URL path. -->
+  <!-- [company name] would slot into the hero + persona heading in a later phase; inert here. -->
+  <!-- ============================================ -->
+  <section class="dnd-persona">
+    <div class="dnd-section">
+      <h2 id="persona-heading">Here to help you deliver frictionless payments at <span class="accent">global scale</span></h2>
+      <p id="persona-body">Dandelion helps financial institutions modernize cross-border payments, reduce regulatory risk, and deliver faster, more transparent experiences through a single, intelligent global payout network. All backed by nearly 40 years of compliance, security, and operational excellence.</p>
+      <div class="dnd-points-grid">
+        <div class="dnd-point-card">
+          <img src="/assets/images/arrow.png" alt="" loading="eager">
+          <h3>Security and compliance, embedded from day one</h3>
+          <p>Cross-border payments demand strict compliance and security. Dandelion delivers global compliance, real-time monitoring, bank-grade security, and AI-driven transaction intelligence, giving you predictable, secure cross-border payments with full regulatory confidence.</p>
+        </div>
+        <div class="dnd-point-card">
+          <img src="/assets/images/arrow.png" alt="" loading="eager">
+          <h3>Efficient infrastructure that fits your systems and priorities</h3>
+          <p>Dandelion offers flexible SWIFT or API connectivity, intelligent routing, and automation to reach all endpoints across 200+ countries, supporting efficiency at scale without disrupting your operations.</p>
+        </div>
+        <div class="dnd-point-card">
+          <img src="/assets/images/arrow.png" alt="" loading="eager">
+          <h3>Proven performance and global reach</h3>
+          <p>Dandelion delivers fast, reliable payouts to accounts, wallets, and cards worldwide, including markets where RTP isn't available. A scalable foundation trusted by leading financial institutions.</p>
+        </div>
+        <div class="dnd-point-card">
+          <img src="/assets/images/arrow.png" alt="" loading="eager">
+          <h3>Experiences that meet rising expectations</h3>
+          <p>Dandelion enables secure, 24/7 delivery across 200+ countries, helping you offer frictionless payment experiences even in fragmented markets.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHITEPAPER -->
+  <section class="dnd-whitepaper">
+    <div class="dnd-section dnd-whitepaper-inner">
+      <div class="dnd-whitepaper-img">
+        <img src="/assets/images/whitepaper-image.png" alt="Whitepaper preview" loading="eager">
+      </div>
+      <div class="dnd-whitepaper-text">
+        <h2>Your exclusive early access to a new perspective on global payments</h2>
+        <p>Intelligent interoperability is changing how institutions navigate fragmented payment landscapes. In partnership with The Payments Association, this research-backed whitepaper reveals:</p>
+        <ul>
+          <li>Why intelligent interoperability is becoming critical for navigating global fragmentation</li>
+          <li>How it enables reach, consistency, and capability expansion without waiting for global alignment</li>
+          <li>What it means for the future of cross-border payments</li>
+        </ul>
+        <a href="/assets/whitepaper.pdf" target="_blank" rel="noopener" class="dnd-btn">Get exclusive early access</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO STRIP -- static, non-clickable. Second set mirrors the first for the seamless marquee loop. -->
+  <section class="dnd-logos">
+    <div class="dnd-section">
+      <p>Leading banks and fintechs already partner with Dandelion</p>
+      <div class="dnd-logos-mask">
+        <ul class="dnd-logos-row">
+          <li><img class="lg" src="/assets/images/ant-international-logo2.png" alt="Ant International" loading="eager"></li>
+          <li><img src="/assets/images/yape-logo.png" alt="Yape" loading="eager"></li>
+          <li><img class="lg" src="/assets/images/commonwealth-bank-logo.png" alt="Commonwealth Bank of Australia" loading="eager"></li>
+          <li><img class="lg" src="/assets/images/remitly-logo.png" alt="Remitly" loading="eager"></li>
+          <li><img class="lg" src="/assets/images/xoom-logo.png" alt="Xoom" loading="eager"></li>
+          <li><img class="lg" src="/assets/images/pingpong-logo2.png" alt="PingPong" loading="eager"></li>
+          <li aria-hidden="true"><img class="lg" src="/assets/images/ant-international-logo2.png" alt="" loading="eager"></li>
+          <li aria-hidden="true"><img src="/assets/images/yape-logo.png" alt="" loading="eager"></li>
+          <li aria-hidden="true"><img class="lg" src="/assets/images/commonwealth-bank-logo.png" alt="" loading="eager"></li>
+          <li aria-hidden="true"><img class="lg" src="/assets/images/remitly-logo.png" alt="" loading="eager"></li>
+          <li aria-hidden="true"><img class="lg" src="/assets/images/xoom-logo.png" alt="" loading="eager"></li>
+          <li aria-hidden="true"><img class="lg" src="/assets/images/pingpong-logo2.png" alt="" loading="eager"></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE FROM DANDELION -->
+  <section class="dnd-resources">
+    <div class="dnd-section">
+      <h2>More from Dandelion</h2>
+      <div class="dnd-res-grid">
+        <div class="dnd-res-card">
+          <img src="/assets/images/image1.png" alt="Global payment flows shifting toward digital wallets and real-time systems" loading="eager">
+          <div class="dnd-res-card-body">
+            <h3>Intelligent interoperability is powering the next leap in global payments</h3>
+            <p>Global payment flows are shifting as digital wallets, real-time systems, and local rails reshape how money moves across borders. Providers need smarter ways to connect these infrastructures.</p>
+            <a href="/assets/whitepaper.pdf" target="_blank" rel="noopener"><img src="/assets/images/arrow.png" alt="" loading="eager">Find out more in our whitepaper</a>
+          </div>
+        </div>
+        <div class="dnd-res-card">
+          <img src="/assets/images/image2.png" alt="Futuristic network grid representing global payment rails" loading="eager">
+          <div class="dnd-res-card-body">
+            <h3>The future of cross-border payments doesn't rest on one rail</h3>
+            <p>Cross-border payments now span diverse rails, wallets, and real-time networks. But the future isn't about more connections, it's about coordinating them through intelligent interoperability for faster, clearer, more dependable experiences.</p>
+            <a href="/assets/dandelion-crossborder-infographic.png" target="_blank" rel="noopener"><img src="/assets/images/arrow.png" alt="" loading="eager">Explore our infographic</a>
+          </div>
+        </div>
+        <div class="dnd-res-card">
+          <img src="/assets/images/image3.png" alt="View looking up at a skyscraper against the sun" loading="eager">
+          <div class="dnd-res-card-body">
+            <h3>How Dandelion is redefining global banking innovation</h3>
+            <p>As technology and expectations accelerate, Dandelion helps banks modernize with real-time, transparent cross-border payments, instant global reach and compliance built into every transaction.</p>
+            <a href="https://www.dandelionpayments.com/resources/how-dandelion-is-redefining-global-banking-innovation/"><img src="/assets/images/arrow.png" alt="" loading="eager">Discover transparent, real-time cross-border payments with Dandelion</a>
+          </div>
+        </div>
+        <div class="dnd-res-card">
+          <img src="/assets/images/image4.png" alt="People in an office seen through reflective glass" loading="eager">
+          <div class="dnd-res-card-body">
+            <h3>Building successful fintech–bank partnerships</h3>
+            <p>Banks and fintechs need stronger alignment to move faster and deliver better outcomes. This panel explores what effective partnerships look like, and how the right payout network can enable speed and reliability at scale.</p>
+            <a href="https://www.dandelionpayments.com/resources/building-successful-fintech-bank-partnerships/"><img src="/assets/images/arrow.png" alt="" loading="eager">See why better connections matter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSING CTA -->
+  <section class="dnd-cta">
+    <div class="dnd-cta-row">
+      <div class="dnd-cta-inner">
+        <h2>Let's explore what's next together</h2>
+        <p>Find out more about Dandelion with this overview, we look forward to connecting soon.</p>
+        <a href="/assets/dandelion-payments-overview.pdf" target="_blank" rel="noopener" class="dnd-btn">View the overview</a>
+      </div>
+      <div class="dnd-cta-graphic">
+        <img src="/assets/images/graphic.png" alt="" loading="eager">
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="dnd-footer">
+    <div class="dnd-section">
+      <p>Dandelion, A Euronet Service © 2026 Dandelion Payments, Inc. All rights reserved.</p>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ============================================================================
+     PERSONA COPY — single source of truth for all 8 pages.
+     Key = URL path. Only heading / body / the 4 points differ between personas.
+     _source notes the block in "Dandelion-LandingPage_persona block_sentic.docx".
+     ========================================================================= -->
+<script type="application/json" id="persona-data">
+{
+  "commercial-bank-general": {
+    "_source": "Commercial bank – general",
+    "heading": "Here to help you deliver frictionless payments at <span class=\"accent\">global scale</span>",
+    "body": "Dandelion helps banks reduce regulatory exposure, modernize legacy infrastructure, and compete more effectively in crossborder payments, all through a single integration to an intelligent global payout network backed by nearly 40 years of compliance, security, and operational excellence.",
+    "points": [
+      { "heading": "Security and compliance, embedded from day one", "body": "Dandelion delivers global compliance, real-time monitoring, bank-grade security, and AI-driven transaction intelligence, giving you predictable, secure cross-border payments with full regulatory confidence." },
+      { "heading": "Efficient infrastructure that fits your operations", "body": "Flexible SWIFT or API connectivity and intelligent routing give you 200+ countries through one contract, to support your operational needs for efficiency at scale" },
+      { "heading": "Proven performance in every corridor", "body": "Dandelion delivers fast, reliable payouts to accounts, wallets, and cards worldwide, including markets without domestic RTP, backed by over 1,000 banking partners built over 40 years." },
+      { "heading": "Experiences that meet rising customer expectations", "body": "Dandelion delivers secure, predictable cross-border payments and 24/7 availability, letting you offer a frictionless customer experience even in markets where real-time networks aren't available." }
+    ]
+  },
+  "commercial-bank-product-manager": {
+    "_source": "Commercial bank – product manager",
+    "heading": "Built to support the evolution of your <span class=\"accent\">payment products</span>",
+    "body": "Dandelion helps you deliver safer, more competitive cross-border payment experiences, reducing regulatory friction, modernizing legacy infrastructure, and improving efficiency through a single integration to an intelligent global payout network backed by nearly 40 years of compliance and operational expertise.",
+    "points": [
+      { "heading": "Experiences that create real impact for customers", "body": "Dandelion delivers secure, predictable cross-border payments and 24/7 availability, giving customers a frictionless experience that drives adoption, even in markets without real-time networks." },
+      { "heading": "A competitive edge your products can build on", "body": "Dandelion offers fast, reliable payouts to accounts, wallets, and cards worldwide, including markets without domestic RTP, backed by over 1,000 banking partners built over 40 years." },
+      { "heading": "Modernisation that improves efficiency, scale, and integration flexibility", "body": "Flexible SWIFT or API connectivity and intelligent routing give you 200+ countries through one contract, to support your operational needs for efficiency at scale." },
+      { "heading": "Regulatory confidence that accelerates product progress", "body": "Dandelion delivers global compliance, real-time monitoring, bank-grade security, and AI-driven transaction intelligence, giving you predictable, secure delivery without regulatory or operational risk." }
+    ]
+  },
+  "commercial-bank-strategy-sales": {
+    "_source": "Commercial bank – strategy/sales",
+    "heading": "Built for the market pressures shaping your organization <span class=\"accent\">today</span>",
+    "body": "Dandelion helps growth teams reduce regulatory exposure, modernize legacy infrastructure, and compete more effectively in crossborder payments, all through a single integration to an intelligent global payout network backed by nearly 40 years of compliance, security, and operational excellence.",
+    "points": [
+      { "heading": "Efficient infrastructure that accelerates commercial opportunity", "body": "Flexible SWIFT or API connectivity and intelligent routing give you 200+ countries through one contract, to support your operational needs for efficiency at scale." },
+      { "heading": "A competitive advantage in every market you enter", "body": "Dandelion offers fast, reliable payouts to accounts, wallets, and cards worldwide, including markets without domestic RTP, backed by over 1,000 banking partners built over 40 years." },
+      { "heading": "Client experiences that drive acquisition, retention, and long-term value", "body": "Dandelion delivers secure, predictable cross-border payments and 24/7 availability, helping you strengthen relationships and win and retain high-value clients, even where real-time networks aren't available." },
+      { "heading": "Regulatory confidence that protects your business and your clients", "body": "Dandelion delivers global compliance, real-time monitoring, bank-grade security, and AI-driven transaction intelligence, giving you predictable, secure delivery with full regulatory confidence." }
+    ]
+  },
+  "commercial-bank-risk-compliance": {
+    "_source": "Commercial bank – risk/compliance",
+    "heading": "Built for the operational challenges you could be facing <span class=\"accent\">today</span>",
+    "body": "Dandelion helps banks reduce regulatory exposure, strengthen controls, and deliver safer crossborder payment experiences, all through a single integration to an intelligent global payout network backed by nearly 40 years of compliance, security, and operational excellence.",
+    "points": [
+      { "heading": "Regulatory confidence as standard", "body": "Dandelion delivers global compliance, real-time monitoring, bank-grade security, and AI-driven transaction intelligence, helping protect your organisation and clients from regulatory and operational risk." },
+      { "heading": "Modern infrastructure that strengthens controls", "body": "Flexible SWIFT or API connectivity and intelligent routing give you 200+ countries through one contract, improving auditability, consistency, and resilience without disrupting existing systems." },
+      { "heading": "A safer, more competitive cross-border offering", "body": "Dandelion offers fast, reliable payouts to accounts, wallets, and cards worldwide, including markets without domestic RTP, backed by over 1,000 banking partners built over 40 years." },
+      { "heading": "Client experiences built on trust and protection", "body": "Dandelion delivers secure, real-time cross-border payments and 24/7 availability, helping you offer a frictionless experience that protects clients and reinforces trust as you scale." }
+    ]
+  },
+  "retail-bank-general": {
+    "_source": "Retail bank – general",
+    "heading": "Here to help you deliver frictionless payments at <span class=\"accent\">global scale</span>",
+    "body": "Dandelion helps retail banks compete more effectively in crossborder payments, addressing legacy constraints, regulatory pressure, profitability challenges, and rising customer expectations through a single integration to an intelligent global payout network. We work closely with you to understand your payments roadmap, dedicating a team to support every step of your evolution.",
+    "points": [
+      { "heading": "Trusted real-time capabilities without reputational risk", "body": "Dandelion delivers global licenses, real-time monitoring, bank-grade security, and AI-driven transaction intelligence, letting you introduce modern capabilities without compromising safety or reputation." },
+      { "heading": "Modernisation that fits your systems, priorities, and pace", "body": "One integration gives you real-time, direct-to-local delivery across 200+ countries, while you keep full control over pricing, branding, and user experience." },
+      { "heading": "A competitive edge in a highly competitive remittance market", "body": "Dandelion delivers fast, reliable payouts to accounts, wallets, and cards worldwide, including markets without domestic RTP, giving you a proven foundation for differentiation and customer stickiness." },
+      { "heading": "Customer experiences that drive loyalty and lifetime value", "body": "Dandelion offers secure, real-time cross-border payments and 24/7 availability across all major endpoints, supporting digital users and cash preference alike, driving loyalty and growth." }
+    ]
+  },
+  "retail-bank-treasury-management": {
+    "_source": "Retail bank – treasury management",
+    "heading": "Built for the cross-border risk and revenue realities faced <span class=\"accent\">today</span>",
+    "body": "Dandelion helps treasury teams reduce operational and regulatory risk and unlock new revenue opportunities, all through a single integration to an intelligent global payout network. We work closely with you to understand your payments roadmap, dedicating a team to support safe, scalable expansion.",
+    "points": [
+      { "heading": "Predictable, compliant cross-border flows you can rely on", "body": "Dandelion delivers global licenses, real-time monitoring, bank-grade security, and AI-driven transaction intelligence, giving you secure, predictable delivery while enabling growth in high-volume corridors." },
+      { "heading": "Modern rails that simplify reconciliation and operational management", "body": "One integration gives you real-time, direct-to-local delivery across 200+ countries, reducing manual processes and improving visibility without disrupting existing systems." },
+      { "heading": "A scalable, revenue-generating cross-border engine", "body": "Dandelion delivers fast, reliable payouts to accounts, wallets, and cards worldwide, including markets without domestic RTP, giving you a scalable engine for fee and FX revenue." },
+      { "heading": "Customer experiences that strengthen deposits and long-term value", "body": "Dandelion offers secure, real-time cross-border payments and 24/7 availability across all major endpoints, supporting digital users and cash preference alike, deepening long-term loyalty." }
+    ]
+  },
+  "retail-bank-product-management": {
+    "_source": "Retail bank – product management",
+    "heading": "Built for the product realities faced <span class=\"accent\">today</span>",
+    "body": "Dandelion helps product teams deliver modern, scalable crossborder payment experiences, reducing friction, enabling innovation, and protecting customers through a single integration to an intelligent global payout network. We work closely with you to understand your payments roadmap, dedicating a team to support fast, flexible deployment.",
+    "points": [
+      { "heading": "Frictionless experiences that drive adoption and engagement", "body": "Dandelion offers secure, real-time cross-border payments and 24/7 availability across all major endpoints, supporting digital users and cash preference alike, strengthening engagement and loyalty." },
+      { "heading": "A competitive edge built on flexibility and reach", "body": "Dandelion delivers reliable, real-time payouts to cards, accounts, and wallets worldwide, including markets without RTP, giving you a flexible, high-growth engine for differentiation." },
+      { "heading": "Modern infrastructure that scales with your roadmap", "body": "One integration gives you real-time, direct-to-local delivery across 200+ countries, giving you the efficiency and scalability to evolve your product without adding development pressure." },
+      { "heading": "Trusted real-time capabilities that protect your customers", "body": "Dandelion delivers global licenses, real-time monitoring, and bank-grade security, letting you introduce modern, real-time payment capabilities without compromising customer protection or institutional integrity." }
+    ]
+  },
+  "retail-bank-risk-compliance": {
+    "_source": "Retail bank – risk/compliance",
+    "heading": "Built for the regulatory and operational needs of your organization <span class=\"accent\">today</span>",
+    "body": "Dandelion helps risk and compliance teams reduce exposure, strengthen controls, and deliver safer crossborder payment experiences, all through a single integration to an intelligent global payout network. We work closely with you to understand your payments roadmap and dedicate a team to support secure, compliant deployment.",
+    "points": [
+      { "heading": "Predictable, compliant cross-border flows you can trust", "body": "Dandelion delivers global licenses, real-time monitoring, and bank-grade security built for remittances, underpinning Ria Money Transfer infrastructure and reducing institutional and customer risk." },
+      { "heading": "Modern infrastructure that strengthens oversight and controls", "body": "One integration gives you real-time, direct-to-local delivery and full automation to reach endpoints across 200+ countries, improving consistency and controls without disrupting existing systems." },
+      { "heading": "Customer protection embedded into every experience", "body": "Dandelion offers secure, real-time cross-border payments and 24/7 availability across all major endpoints, protecting customers and reinforcing trust in every interaction." },
+      { "heading": "A more controlled, compliant way to deliver remittance services", "body": "Dandelion offers a secure, bank-grade alternative with fast, reliable payouts to cards, accounts, and wallets worldwide, giving you a compliant engine for long-term growth." }
+    ]
+  }
+}
+</script>
+
+<script>
+(function(){
+  /* ---- persona swap: pick the entry by URL path, fill heading + intro + 4 point cards ---- */
+  try {
+    var PERSONAS = JSON.parse(document.getElementById('persona-data').textContent);
+
+    /* [company name] personalization: wired for a later phase, inert now.
+       When the company-name pages ship, set this from the data layer / redirect
+       and the hero + persona heading below will fill the slot. '' = do nothing. */
+    var COMPANY_NAME = '';
+
+    /* Resolve persona key from the clean path (e.g. /commercial-bank-general).
+       ?p=<key> is honoured too, for local testing only — never used in ad links. */
+    var override = new URLSearchParams(location.search).get('p');
+    var seg = location.pathname.replace(/^\/+|\/+$/g, '').split('/').pop().replace(/\.html$/, '');
+    var key = (override && PERSONAS[override]) ? override : (PERSONAS[seg] ? seg : null);
+
+    if (key) {
+      var entry = PERSONAS[key];
+      document.getElementById('persona-heading').innerHTML = entry.heading;
+      document.getElementById('persona-body').textContent = entry.body;
+      var cards = document.querySelectorAll('.dnd-points-grid .dnd-point-card');
+      (entry.points || []).forEach(function(pt, i){
+        if (!cards[i] || !pt) return;
+        var h = cards[i].querySelector('h3');
+        var b = cards[i].querySelector('p');
+        if (h && pt.heading) h.textContent = pt.heading;
+        if (b && pt.body) b.textContent = pt.body;
+      });
+    }
+
+    if (COMPANY_NAME) {
+      var hero = document.getElementById('hero-heading');
+      if (hero && hero.firstChild) hero.firstChild.nodeValue = 'Powering ' + COMPANY_NAME + '’s next phase of global payout ';
+    }
+  } catch (err) {
+    console.warn('persona swap failed, showing general-audience copy', err);
+  }
+
+  /* ---- stat count-up on scroll into view ---- */
+  var els = document.querySelectorAll('.dnd-proof .count');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function format(n, el){
+    return el.getAttribute('data-format') === 'comma' ? n.toLocaleString('en-US') : String(n);
+  }
+  function run(el){
+    var target = parseInt(el.getAttribute('data-target'), 10) || 0;
+    if(reduce){ el.textContent = format(target, el); return; }
+    var duration = 1400, start = null;
+    function ease(t){ return 1 - Math.pow(1 - t, 3); }
+    function step(ts){
+      if(start === null) start = ts;
+      var p = Math.min((ts - start) / duration, 1);
+      el.textContent = format(Math.round(ease(p) * target), el);
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if(els.length){
+    if('IntersectionObserver' in window){
+      var seen = new WeakSet();
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting && !seen.has(entry.target)){
+            seen.add(entry.target);
+            run(entry.target);
+          }
+        });
+      }, {threshold: 0.4});
+      els.forEach(function(el){ io.observe(el); });
+    } else {
+      els.forEach(run);
+    }
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Persona landing pages — one template (persona.html) served at 8 clean paths.
+# 200 = rewrite (URL in the address bar stays the clean path, so each is tracked on its own).
+# persona.html reads the path to pick which persona copy to show.
+
+/commercial-bank-general            /persona.html   200
+/commercial-bank-product-manager    /persona.html   200
+/commercial-bank-strategy-sales     /persona.html   200
+/commercial-bank-risk-compliance    /persona.html   200
+/retail-bank-general                /persona.html   200
+/retail-bank-treasury-management    /persona.html   200
+/retail-bank-product-management     /persona.html   200
+/retail-bank-risk-compliance        /persona.html   200
