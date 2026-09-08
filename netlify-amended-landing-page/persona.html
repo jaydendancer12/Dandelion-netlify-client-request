@@ -32,6 +32,10 @@
 
   *{box-sizing:border-box;}
   :root{--orange-text:#F99E25;--orange-btn:#FF6101;}
+  /* Overscroll area only: navy above the hero, white below the footer, so the bare page
+     background is never visible when the browser rubber-bands past the top or bottom.
+     This does not change scrolling behaviour. */
+  html{background-color:#011133;background-image:linear-gradient(to bottom,#011133 50%,#ffffff 50%);background-attachment:fixed;background-repeat:no-repeat;}
   body{margin:0;font-family:'Poppins',sans-serif;color:#011133;line-height:1.55;background:#fff;}
   .dnd-section{max-width:1180px;margin:0 auto;padding:0 24px;}
 
