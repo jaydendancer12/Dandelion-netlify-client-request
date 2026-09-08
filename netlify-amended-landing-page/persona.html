@@ -122,6 +122,56 @@
     .dnd-points-grid,.dnd-res-grid{grid-template-columns:repeat(2,1fr);}
     .dnd-hero-text h1{font-size:28px;}
   }
+
+  /* ===== MOBILE + TABLET (max-width 1024px) ===== */
+  @media(max-width:1024px){
+    /* header: keep the logo, drop the hero graphic */
+    .dnd-hero-graphic{display:none;}
+    .dnd-hero-text{flex-basis:100%;padding:52px 0;}
+    .dnd-logo{display:block;}
+    .dnd-hero-text h1{font-size:26px;}
+
+    /* closing CTA (the "footer" block): drop the graphic */
+    .dnd-cta-graphic{display:none;}
+    .dnd-cta-inner{max-width:none;flex-basis:100%;}
+
+    /* proof stats: 5th card is the only centred one */
+    .dnd-proof-grid{grid-template-columns:repeat(2,1fr);}
+    .dnd-proof-grid > .dnd-proof-card:last-child{
+      grid-column:1 / -1;justify-self:center;width:calc(50% - 10px);text-align:center;
+    }
+    .dnd-proof-grid > .dnd-proof-card:last-child img{margin-left:auto;margin-right:auto;}
+
+    /* points + resources: pre-JS / no-JS fallback is a simple stack */
+    .dnd-points-grid,.dnd-res-grid{grid-template-columns:1fr;}
+
+    /* points + resources: one-card-at-a-time swipe carousel (JS adds .dnd-carousel) */
+    .dnd-points-grid.dnd-carousel,.dnd-res-grid.dnd-carousel{
+      display:flex;grid-template-columns:none;gap:0;
+      overflow-x:auto;overflow-y:hidden;
+      scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+      scrollbar-width:none;-ms-overflow-style:none;
+    }
+    .dnd-points-grid.dnd-carousel::-webkit-scrollbar,
+    .dnd-res-grid.dnd-carousel::-webkit-scrollbar{display:none;}
+    .dnd-carousel > *{
+      flex:0 0 100%;max-width:100%;scroll-snap-align:center;scroll-snap-stop:always;
+    }
+    .dnd-carousel-dots{display:flex;justify-content:center;gap:9px;margin-top:22px;}
+    .dnd-carousel-dots button{
+      width:9px;height:9px;padding:0;border:0;border-radius:50%;cursor:pointer;
+      background:rgba(1,17,51,.22);transition:background .2s,transform .2s;
+    }
+    .dnd-carousel-dots button[aria-current="true"]{background:var(--orange-btn);transform:scale(1.25);}
+    .dnd-persona .dnd-carousel-dots button{background:rgba(255,255,255,.28);}
+    .dnd-persona .dnd-carousel-dots button[aria-current="true"]{background:var(--orange-text);}
+
+    /* keep the logo marquee composited/animating on touch devices */
+    .dnd-logos-row{will-change:transform;}
+  }
+  @media(max-width:1024px) and (prefers-reduced-motion:reduce){
+    .dnd-logos-row{animation:dnd-marquee 60s linear infinite;}
+  }
 </style>
 </head>
 <body>
@@ -480,6 +530,98 @@
       els.forEach(run);
     }
   }
+})();
+
+/* ---- mobile / tablet: turn the point + resource grids into one-at-a-time swipe carousels ---- */
+(function(){
+  var mq = window.matchMedia('(max-width: 1024px)');
+  var grids = [document.querySelector('.dnd-points-grid'), document.querySelector('.dnd-res-grid')].filter(Boolean);
+  var built = [];
+
+  function build(grid){
+    var originals = Array.prototype.slice.call(grid.children);
+    var n = originals.length;
+    if (n < 2) return null;
+
+    function cloneSet(){
+      return originals.map(function(el){
+        var c = el.cloneNode(true);
+        c.setAttribute('aria-hidden', 'true');
+        c.setAttribute('tabindex', '-1');
+        Array.prototype.forEach.call(c.querySelectorAll('a,button,input'), function(x){ x.setAttribute('tabindex', '-1'); });
+        return c;
+      });
+    }
+    var frag = document.createDocumentFragment();
+    cloneSet().concat(originals, cloneSet()).forEach(function(node){ frag.appendChild(node); });
+    grid.textContent = '';
+    grid.appendChild(frag);
+    grid.classList.add('dnd-carousel');
+
+    var dots = document.createElement('div');
+    dots.className = 'dnd-carousel-dots';
+    var btns = originals.map(function(_, i){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.setAttribute('aria-label', 'Show item ' + (i + 1) + ' of ' + n);
+      b.addEventListener('click', function(){ go(i, true); });
+      dots.appendChild(b);
+      return b;
+    });
+    grid.parentNode.insertBefore(dots, grid.nextSibling);
+
+    function cw(){ return grid.children[0] ? grid.children[0].getBoundingClientRect().width : 0; }
+    function rawIndex(){ var w = cw(); return w ? Math.round(grid.scrollLeft / w) : 0; }
+    function realIndex(){ return ((rawIndex() % n) + n) % n; }
+    function go(r, smooth){
+      var left = (n + r) * cw();
+      try { grid.scrollTo({ left: left, behavior: smooth ? 'smooth' : 'auto' }); }
+      catch (e) { grid.scrollLeft = left; }
+    }
+    function syncDots(){
+      var r = realIndex();
+      btns.forEach(function(b, i){
+        if (i === r) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+      });
+    }
+    function loop(){
+      var i = rawIndex();
+      if (i < n) grid.scrollLeft += n * cw();
+      else if (i >= 2 * n) grid.scrollLeft -= n * cw();
+    }
+
+    var settleId;
+    var state = { grid: grid, dots: dots, originals: originals };
+    state.onScroll = function(){
+      syncDots();
+      clearTimeout(settleId);
+      settleId = setTimeout(loop, 140);
+    };
+    state.onResize = function(){ go(realIndex(), false); };
+    grid.addEventListener('scroll', state.onScroll, { passive: true });
+    window.addEventListener('resize', state.onResize);
+
+    setTimeout(function(){ grid.scrollLeft = n * cw(); syncDots(); }, 60);
+    return state;
+  }
+
+  function destroy(state){
+    if (!state) return;
+    state.grid.removeEventListener('scroll', state.onScroll);
+    window.removeEventListener('resize', state.onResize);
+    state.grid.classList.remove('dnd-carousel');
+    state.grid.textContent = '';
+    state.originals.forEach(function(el){ state.grid.appendChild(el); });
+    if (state.dots && state.dots.parentNode) state.dots.parentNode.removeChild(state.dots);
+  }
+
+  function apply(){
+    if (mq.matches && !built.length) built = grids.map(build);
+    else if (!mq.matches && built.length) { built.forEach(destroy); built = []; }
+  }
+  apply();
+  if (mq.addEventListener) mq.addEventListener('change', apply);
+  else mq.addListener(apply);
 })();
 </script>
 
