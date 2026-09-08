@@ -112,6 +112,17 @@
 
   /* ===== MOBILE + TABLET (max-width 1024px) ===== */
   @media(max-width:1024px){
+    /* overscroll colour: also drive it from <body>, which is what mobile browsers
+       (iOS Safari) paint in the rubber-band area. Navy top half, white bottom half. */
+    html,body{
+      background-color:#011133;
+      background-image:linear-gradient(to bottom,#011133 50%,#ffffff 50%);
+      background-repeat:no-repeat;
+      background-attachment:fixed;
+      background-size:100% 100vh;
+      background-position:top center;
+    }
+
     /* header: keep the logo, drop the hero graphic */
     .dnd-hero-graphic{display:none;}
     .dnd-hero-text{flex-basis:100%;padding:52px 0;}
@@ -134,7 +145,7 @@
 
     /* points + resources: one-card-at-a-time swipe carousel (JS adds .dnd-carousel) */
     .dnd-points-grid.dnd-carousel,.dnd-res-grid.dnd-carousel{
-      display:flex;grid-template-columns:none;gap:0;
+      display:flex;grid-template-columns:none;gap:22px;
       overflow-x:auto;overflow-y:hidden;
       scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
       scrollbar-width:none;-ms-overflow-style:none;
@@ -153,11 +164,11 @@
     .dnd-persona .dnd-carousel-dots button{background:rgba(255,255,255,.28);}
     .dnd-persona .dnd-carousel-dots button[aria-current="true"]{background:var(--orange-text);}
 
-    /* keep the logo marquee composited/animating on touch devices */
-    .dnd-logos-row{will-change:transform;}
+    /* keep the logo marquee composited/animating on touch devices, and 1.7x faster */
+    .dnd-logos-row{will-change:transform;animation-duration:16.5s;}
   }
   @media(max-width:1024px) and (prefers-reduced-motion:reduce){
-    .dnd-logos-row{animation:dnd-marquee 60s linear infinite;}
+    .dnd-logos-row{animation:dnd-marquee 35s linear infinite;}
   }
 </style>
 </head>
@@ -447,11 +458,16 @@
     });
     grid.parentNode.insertBefore(dots, grid.nextSibling);
 
-    function cw(){ return grid.children[0] ? grid.children[0].getBoundingClientRect().width : 0; }
-    function rawIndex(){ var w = cw(); return w ? Math.round(grid.scrollLeft / w) : 0; }
+    /* stride = distance between consecutive card starts (card width + the flex gap) */
+    function step(){
+      var a = grid.children[0], b = grid.children[1];
+      if (a && b) return b.getBoundingClientRect().left - a.getBoundingClientRect().left;
+      return a ? a.getBoundingClientRect().width : 0;
+    }
+    function rawIndex(){ var s = step(); return s ? Math.round(grid.scrollLeft / s) : 0; }
     function realIndex(){ return ((rawIndex() % n) + n) % n; }
     function go(r, smooth){
-      var left = (n + r) * cw();
+      var left = (n + r) * step();
       try { grid.scrollTo({ left: left, behavior: smooth ? 'smooth' : 'auto' }); }
       catch (e) { grid.scrollLeft = left; }
     }
@@ -463,8 +479,8 @@
     }
     function loop(){
       var i = rawIndex();
-      if (i < n) grid.scrollLeft += n * cw();
-      else if (i >= 2 * n) grid.scrollLeft -= n * cw();
+      if (i < n) grid.scrollLeft += n * step();
+      else if (i >= 2 * n) grid.scrollLeft -= n * step();
     }
 
     var settleId;
@@ -478,7 +494,7 @@
     grid.addEventListener('scroll', state.onScroll, { passive: true });
     window.addEventListener('resize', state.onResize);
 
-    setTimeout(function(){ grid.scrollLeft = n * cw(); syncDots(); }, 60);
+    setTimeout(function(){ grid.scrollLeft = n * step(); syncDots(); }, 60);
     return state;
   }
 
