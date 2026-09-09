@@ -22,6 +22,26 @@
      inert on these 8 pages; it belongs to a later phase.
      ========================================================================== -->
 
+<!-- Google Analytics (GA4) — basic pageviews + engagement time only. No conversion tracking.
+     page_type is always 'persona'; variant_key is the persona slug from the clean URL path
+     (e.g. /commercial-bank-general), so every persona page splits out in GA4 reports via the
+     registered custom dimensions. ?p=<key> override is honoured for local testing, matching
+     the persona copy swap below. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C3KV4Q7L0F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  (function(){
+    var override = new URLSearchParams(location.search).get('p');
+    var seg = location.pathname.replace(/^\/+|\/+$/g, '').split('/').pop().replace(/\.html$/, '');
+    gtag('config', 'G-C3KV4Q7L0F', {
+      page_type: 'persona',
+      variant_key: override || seg || 'unknown'
+    });
+  })();
+</script>
+
 <link rel="preload" as="image" href="/assets/images/logo.png">
 <link rel="preload" as="image" href="/assets/images/graphic.png">
 

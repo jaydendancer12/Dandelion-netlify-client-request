@@ -6,6 +6,25 @@
 <title>Dandelion Payments | Global Payout Performance</title>
 <meta name="description" content="Dandelion powers the world's largest real-time cross-border payments network — direct-to-local reach, new corridors, and the reliability commercial banks and fintechs depend on.">
 
+<!-- Google Analytics (GA4) — basic pageviews + engagement time only. No conversion tracking.
+     page_type / variant_key are registered as custom dimensions in GA4 so master vs company
+     pages can be split in reports. Company is decided by ?company=<slug> (see data/companies.json),
+     the same param the persona-block copy swap below uses. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C3KV4Q7L0F"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  (function(){
+    var slug = new URLSearchParams(location.search).get('company') || 'default';
+    var isCompany = slug !== 'default';
+    gtag('config', 'G-C3KV4Q7L0F', {
+      page_type: isCompany ? 'company' : 'master',
+      variant_key: isCompany ? slug : 'master'
+    });
+  })();
+</script>
+
 <link rel="preload" as="image" href="assets/images/logo.png">
 <link rel="preload" as="image" href="assets/images/graphic.png">
 
