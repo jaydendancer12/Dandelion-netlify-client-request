@@ -6,24 +6,30 @@
 <title>Dandelion Payments | Global Payout Performance</title>
 <meta name="description" content="Dandelion powers the world's largest real-time cross-border payments network — direct-to-local reach, new corridors, and the reliability commercial banks and fintechs depend on.">
 
-<!-- Google Analytics (GA4) — basic pageviews + engagement time only. No conversion tracking.
-     page_type / variant_key are registered as custom dimensions in GA4 so master vs company
-     pages can be split in reports. Company is decided by ?company=<slug> (see data/companies.json),
-     the same param the persona-block copy swap below uses. -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C3KV4Q7L0F"></script>
+<!-- Analytics: classify the page, then load Google Tag Manager.
+     page_type / variant_key are pushed to the dataLayer BEFORE GTM loads so the GA4
+     page_view (fired inside GTM container GTM-5SC34BZ3) carries them. They map to the
+     page_type / variant_key custom dimensions on GA4 property G-C3KV4Q7L0F. No conversion
+     tracking. master site: page_type = master, or company when ?company=<slug> is present
+     (see data/companies.json), the same param the persona-block copy swap below uses. -->
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
   (function(){
     var slug = new URLSearchParams(location.search).get('company') || 'default';
     var isCompany = slug !== 'default';
-    gtag('config', 'G-C3KV4Q7L0F', {
+    window.dataLayer.push({
       page_type: isCompany ? 'company' : 'master',
       variant_key: isCompany ? slug : 'master'
     });
   })();
 </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5SC34BZ3');</script>
+<!-- End Google Tag Manager -->
 
 <link rel="preload" as="image" href="assets/images/logo.png">
 <link rel="preload" as="image" href="assets/images/graphic.png">
@@ -192,6 +198,10 @@
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SC34BZ3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="dnd-page">
 

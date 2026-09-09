@@ -22,25 +22,30 @@
      inert on these 8 pages; it belongs to a later phase.
      ========================================================================== -->
 
-<!-- Google Analytics (GA4) — basic pageviews + engagement time only. No conversion tracking.
-     page_type is always 'persona'; variant_key is the persona slug from the clean URL path
-     (e.g. /commercial-bank-general), so every persona page splits out in GA4 reports via the
-     registered custom dimensions. ?p=<key> override is honoured for local testing, matching
-     the persona copy swap below. -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C3KV4Q7L0F"></script>
+<!-- Analytics: classify the page, then load Google Tag Manager.
+     page_type / variant_key are pushed to the dataLayer BEFORE GTM loads so the GA4
+     page_view (fired inside GTM container GTM-5SC34BZ3) carries them. They map to the
+     page_type / variant_key custom dimensions on GA4 property G-C3KV4Q7L0F. No conversion
+     tracking. persona template: page_type is always 'persona'; variant_key is the persona
+     slug from the clean URL path (e.g. /commercial-bank-general). ?p=<key> is local-test only. -->
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
   (function(){
     var override = new URLSearchParams(location.search).get('p');
     var seg = location.pathname.replace(/^\/+|\/+$/g, '').split('/').pop().replace(/\.html$/, '');
-    gtag('config', 'G-C3KV4Q7L0F', {
+    window.dataLayer.push({
       page_type: 'persona',
       variant_key: override || seg || 'unknown'
     });
   })();
 </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5SC34BZ3');</script>
+<!-- End Google Tag Manager -->
 
 <link rel="preload" as="image" href="/assets/images/logo.png">
 <link rel="preload" as="image" href="/assets/images/graphic.png">
@@ -206,6 +211,10 @@
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SC34BZ3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="dnd-page">
 
