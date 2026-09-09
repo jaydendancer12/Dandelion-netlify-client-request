@@ -202,8 +202,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .dnd-persona .dnd-carousel-dots button{background:rgba(255,255,255,.28);}
     .dnd-persona .dnd-carousel-dots button[aria-current="true"]{background:var(--orange-text);}
 
-    /* keep the logo marquee composited/animating on touch devices, and 1.7x faster */
-    .dnd-logos-row{will-change:transform;animation-duration:16.5s;}
+    /* keep the logo marquee composited/animating on touch devices, and ~2.5x faster than desktop */
+    .dnd-logos-row{will-change:transform;animation-duration:11s;}
   }
   @media(max-width:1024px) and (prefers-reduced-motion:reduce){
     .dnd-logos-row{animation:dnd-marquee 35s linear infinite;}
