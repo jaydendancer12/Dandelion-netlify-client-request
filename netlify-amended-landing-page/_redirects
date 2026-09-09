@@ -5,3 +5,5 @@
 # The old "/clean-path /persona.html 200" rewrites were removed: Cloudflare Pages
 # turns a 200-rewrite to a .html target into a 308 redirect to /persona, which
 # collapsed all 8 personas onto the generic page.
+
+# (redeploy trigger 2026-09-09)
